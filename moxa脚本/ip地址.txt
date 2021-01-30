@@ -1,0 +1,15 @@
+rem ip配置
+set /p setip=ip环境(实验室选 1，dhcp 选2):
+if %setip% == 1 (
+	rem 实验室静态ip
+	netsh interface ip set address "以太网" static 192.168.100.185 255.255.255.0 192.168.100.254 1
+	netsh interface ip set dns "以太网" static 119.29.29.29 register=PRIMARY validate=no
+	netsh interface ip add dns name="以太网"  addr=114.114.114.114  index=2 validate=no
+)
+if %setip% ==2 (
+	rem dhcp
+	netsh interface ip set address "以太网" dhcp
+	netsh interface ip set dns "以太网" dhcp	
+)
+echo 配置成功
+pause

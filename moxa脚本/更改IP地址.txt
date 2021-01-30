@@ -1,0 +1,2 @@
+%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit cd /d "%~dp0"
+netsh interface ip set address "VMware Network Adapter VMnet1" static 192.168.127.185 255.255.255.0
